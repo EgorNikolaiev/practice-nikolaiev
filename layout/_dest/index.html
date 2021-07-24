@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/style.min.css">
+	<!-- <link rel="icon" href="imgages/favicon.ico" type="image/x-icon"> -->
+</head>
+ 
+<body>
+	<div class="wrapper">
+		<header class="header">
+	<div class="header__container _container">
+		<a href="/" class="header__logo">
+			<picture>
+				<source srcset='images/logo.webp' type='image/webp'>
+				<img src='images/logo.png' alt='ancient treasures'>
+			</picture>
+		</a>
+
+		<nav class='header__menu menu'>
+			<button class='menu__button' type='button' aria-expanded='false' aria-controls='menu__list'><span></span></button>
+			<ul class='menu__list' id='menu__list'>
+				<li class='menu__item'><a class='menu__link' href='#'>Vikings</a></li>
+				<li class='menu__item'><a class='menu__link' href='#'>Ancient Egypt</a></li>
+				<li class='menu__item'><a class='menu__link' href='#'>Celtics</a></li>
+				<li class='menu__item'><a class='menu__link menu__link_accent' href='#'>Sale</a></li>
+
+				<li class='menu__item menu__search'>
+					<form action="#" class="search-form">
+						<input type="text" placeholder="Type your search" class="search-form__input">
+						<button class="search-form__button">
+							<svg width="25" height="24" fill="none">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M9.239 17.478A8.24 8.24 0 109.239 1a8.24 8.24 0 000 16.478zm0 1A9.24 9.24 0 109.239 0a9.24 9.24 0 000 18.478z" fill="#202020" />
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M24 24l-8.602-8.602.707-.707 8.602 8.602L24 24z" fill="#202020" />
+							</svg>
+						</button>
+					</form>
+				</li>
+
+
+			</ul>
+		</nav>
+		<div class="header__cart cart">
+			<button class='cart__open-button' type='button' aria-expanded='false' aria-controls='cart__list'>
+				<span class="cart__label">8</span>
+			</button>
+
+			<div class="cart__body">
+				<div class="cart__content">
+
+					<div class="cart__header">
+						<div class="cart__count">Cart (8 items)</div>
+						<button class='cart__close-button' type='button' aria-expanded='false' aria-controls='cart__list'></button>
+					</div>
+					<ul class="cart__list" id="cart__list">
+
+						<li class="cart__item item-cart">
+							<div class="item-cart__image">
+								<picture>
+									<source srcset='images/products/01.webp' type='image/webp'>
+									<img src='images/products/01.jpg' alt='#'>
+								</picture>
+							</div>
+							<a href="#" class="item-cart__title">Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in</a>
+							<div class="item-cart__price">$19.95<span>$29.95</span></div>
+							<div class="item-cart__counter counter-item">
+								<div class="counter-item__down">-</div>
+								<div class="counter-item__number">1</div>
+								<div class="counter-item__up">+</div>
+							</div>
+						</li>
+						<li class="cart__item item-cart">
+							<div class="item-cart__image">
+								<picture>
+									<source srcset='images/products/02.webp' type='image/webp'>
+									<img src='images/products/02.jpg' alt='#'>
+								</picture>
+							</div>
+							<a href="#" class="item-cart__title">Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in</a>
+							<div class="item-cart__price">$19.95<span>$29.95</span></div>
+							<div class="item-cart__counter counter-item">
+								<div class="counter-item__down">-</div>
+								<div class="counter-item__number">1</div>
+								<div class="counter-item__up">+</div>
+							</div>
+						</li>
+						<li class="cart__item item-cart">
+							<div class="item-cart__image">
+								<picture>
+									<source srcset='images/products/03.webp' type='image/webp'>
+									<img src='images/products/03.jpg' alt='#'>
+								</picture>
+							</div>
+							<a href="#" class="item-cart__title">Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in</a>
+							<div class="item-cart__price">$19.95<span>$29.95</span></div>
+							<div class="item-cart__counter counter-item">
+								<div class="counter-item__down">-</div>
+								<div class="counter-item__number">1</div>
+								<div class="counter-item__up">+</div>
+							</div>
+						</li>
+
+					</ul>
+					<div class="cart__footer">
+						<div class="cart__subtotal">Subtotal</div>
+						<div class="cart__subtotal-amount">$144.95</div>
+						<button class="cart__button-view _btn _btn_secondary">View cart</button>
+						<button class="cart__button-proceed _btn _btn_primary">Proceed to checkout</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+		<main class="main">
+
+			<div class="first-screen">
+				<picture>
+					<source srcset='images/bg_main.webp' type='image/webp'>
+					<img class="first-screen__image" src='images/bg_main.jpg' alt='Fenrir The Monster Wolf of Norse Mythology Necklace'>
+				</picture>
+				<a href="product.html" class="first-screen__title">Fenrir The Monster Wolf of Norse Mythology Necklace</a>
+				<div class="first-screen__price">$19.95<span>$29.95</span></div>
+				<a href="product.html" class="first-screen__button _btn _btn_primary">Start Shopping</a>
+			</div>
+
+		</main>
+
+		
+	</div>
+	<script src="js/script.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<div class="first-screen">
+	<img class="first-screen__image" src='{{ section.settings.bg_image | img_url: 'master' }}' 
+				alt='{{ section.settings.bg_image.alt | default: "Fenrir The Monster Wolf of Norse Mythology Necklace" }}'>
+
+	<h1 class="first-screen__title">{{ section.settings.title }}</h1>
+	<div class="first-screen__price">{{ section.settings.price | money }}<span>{{ section.settings.old-price | money }}</span></div>
+	<a href="{{ section.settings.button-link }} " class="first-screen__button _btn _btn_primary">Start Shopping</a>
+</div>
+ 
+{% schema %}
+{
+  "name": "Full screen",
+  "settings": [    
+		{    
+			"type": "image_picker",
+			"id": "bg_image",
+			"label": "Background image"
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"default": "Fenrir The Monster Wolf of Norse Mythology Necklace",
+			"label": "Title"
+		},
+		{
+			"type": "text",
+			"id": "price",
+			"default": "0",
+			"label": "Current price"
+		},
+		{
+			"type": "text",
+			"id": "old-price",
+			"default": "0",
+			"label": "Old price"
+		},
+		{
+			"type": "url",
+			"id": "button-link",
+			"label": "Button link"
+		}
+	],
+	"presets": [{
+    "name": "Full screen",
+    "category": "Section"
+  }]
+}
+{% endschema %}

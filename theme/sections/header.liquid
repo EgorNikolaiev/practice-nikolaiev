@@ -1,0 +1,120 @@
+<header class="header">
+			<div class="header__container _container">
+				<a href="/" class="header__logo">
+					<img src='{{ section.settings.logo | img_url: 'master' }}' 
+							 alt='{{ section.settings.logo.alt | default: shop.name}}'>
+				</a>
+
+				<nav class='header__menu menu'>
+					<button class='menu__button' type='button' aria-expanded='false' aria-controls='menu__list'><span></span></button>
+					<ul class='menu__list' id='menu__list'>
+						{% for link in linklists.main-menu.links %}
+							<li class='menu__item'><a class='menu__link' href='{{ link.url }}'>{{ link.title }}</a></li>
+						{% endfor %}
+
+						<li class='menu__item'><a class='menu__link menu__link_accent' href='#'>Sale</a></li>
+						<li class='menu__item menu__search'>
+							<form action="#" class="search-form">
+								<input type="text" placeholder="Type your search" class="search-form__input">
+								<button class="search-form__button">
+									{% render 'icon-search' %}
+								</button>
+							</form>
+						</li>
+
+					</ul>
+				</nav>
+
+				<div class="header__cart cart">
+					<button class='cart__open-button' type='button' aria-expanded='false' aria-controls='cart__list'>
+						{% render 'icon-cart' %}
+						<span class="cart__label">8</span>
+					</button>
+
+					<div class="cart__body">
+						<div class="cart__content">
+
+							<div class="cart__header">
+								<div class="cart__count">Cart (8 items)</div>
+								<button class='cart__close-button' type='button' aria-expanded='false' aria-controls='cart__list'></button>
+							</div>
+							<ul class="cart__list" id="cart__list">
+
+								<li class="cart__item item-cart">
+									<div class="item-cart__image">
+										<picture>
+											<source srcset='images/products/01.webp' type='image/webp'>
+											<img src='images/products/01.jpg' alt='#'>
+										</picture>
+									</div>
+									<a href="#" class="item-cart__title">Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in</a>
+									<div class="item-cart__price">$19.95<span>$29.95</span></div>
+									<div class="item-cart__counter counter-item">
+										<div class="counter-item__down">-</div>
+										<div class="counter-item__number">1</div>
+										<div class="counter-item__up">+</div>
+									</div>
+								</li>
+								<li class="cart__item item-cart">
+									<div class="item-cart__image">
+										<picture>
+											<source srcset='images/products/02.webp' type='image/webp'>
+											<img src='images/products/02.jpg' alt='#'>
+										</picture>
+									</div>
+									<a href="#" class="item-cart__title">Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in</a>
+									<div class="item-cart__price">$19.95<span>$29.95</span></div>
+									<div class="item-cart__counter counter-item">
+										<div class="counter-item__down">-</div>
+										<div class="counter-item__number">1</div>
+										<div class="counter-item__up">+</div>
+									</div>
+								</li>
+								<li class="cart__item item-cart">
+									<div class="item-cart__image">
+										<picture>
+											<source srcset='images/products/03.webp' type='image/webp'>
+											<img src='images/products/03.jpg' alt='#'>
+										</picture>
+									</div>
+									<a href="#" class="item-cart__title">Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in</a>
+									<div class="item-cart__price">$19.95<span>$29.95</span></div>
+									<div class="item-cart__counter counter-item">
+										<div class="counter-item__down">-</div>
+										<div class="counter-item__number">1</div>
+										<div class="counter-item__up">+</div>
+									</div>
+								</li>
+
+							</ul>
+							<div class="cart__footer">
+								<div class="cart__subtotal">Subtotal</div>
+								<div class="cart__subtotal-amount">$144.95</div>
+								<button class="cart__button-view _btn _btn_secondary">View cart</button>
+								<button class="cart__button-proceed _btn _btn_primary">Proceed to checkout</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Menu"
+    }
+  ]
+}
+{% endschema %}

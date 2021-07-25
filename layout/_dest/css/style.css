@@ -702,7 +702,6 @@ body._lock {
   font-family: "Mulish";
   font-size: 12px;
   text-transform: uppercase;
-  background: url("../images/icons/icon-arrow-down.svg") center right 20px/12px 6px no-repeat;
 }
 
 .form-product__price {

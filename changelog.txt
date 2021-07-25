@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2021-07-25
+### Added
+- header section
+- full screen section
+
 ## [1.0.0] - 2021-07-24
 ### Added
 - skeleton theme

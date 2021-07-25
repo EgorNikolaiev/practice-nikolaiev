@@ -1,20 +1,34 @@
 <!doctype html>
 <html lang="{{ shop.locale }}">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="">
-  <link rel="canonical" href="{{ canonical_url }}">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="">
+	<link rel="canonical" href="{{ canonical_url }}">
 
-  <title>{{ shop.name }}</title>
+	<title>{{ shop.name }}</title>
 
-  <meta name="description" content="">
+	{% if page_description %}
+		<meta name="description" content="{{ page_description | escape }}">
+	{% endif %}
 
-  {{ content_for_header }}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="{{ 'style.min.css' | asset_url }}">
+
+	{{ content_for_header }}
 </head>
 
 <body>
-  {{ content_for_layout }}
+	{% section 'header' %}
+
+	<main class="main">
+		{{ content_for_layout }}
+	</main>
+
+	<script src="{{ 'script.min.js' | asset_url }}" defer="defer"></script>
 </body>
+
 </html>

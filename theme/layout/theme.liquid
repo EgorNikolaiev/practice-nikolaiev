@@ -17,6 +17,33 @@
 
 	<link rel="stylesheet" href="{{ 'style.min.css' | asset_url }}">
 
+	<style>
+		@charset "UTF-8";
+
+		@font-face {
+			font-family: "Mulish";
+			font-display: swap;
+			src: url("{{ 'Mulish-Regular.woff' | asset_url }}") format("woff"), url("{{ 'Mulish-Regular.woff2' | asset_url }}") format("woff2");
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: "Mulish";
+			font-display: swap;
+			src: url("{{ 'Mulish-Bold.woff' | asset_url }}") format("woff"), url("{{ 'Mulish-Bold.woff2' | asset_url }}") format("woff2");
+			font-weight: 700;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: "Goudy Bookletter 1911";
+			font-display: swap;
+			src: url("{{ 'GoudyBookletter1911-Regular.woff' | asset_url }}") format("woff"), url("{{ 'GoudyBookletter1911-Regular.woff2' | asset_url }}") format("woff2");
+			font-weight: 400;
+			font-style: normal;
+		}
+	</style>
 	{{ content_for_header }}
 </head>
 

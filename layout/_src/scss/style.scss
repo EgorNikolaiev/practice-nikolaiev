@@ -1,11 +1,11 @@
+// @import "fonts";
+@import "reset";
+@import "swiper";
+
 $black: #202020;
 $white: #fff;
 $gray: #b4b4b4;
 $accent: #cc0000;
-
-@import "reset";
-@import "fonts";
-@import "swiper";
 
 $maxWidth: 1366;
 $maxWidthContainer: 1184;
@@ -73,6 +73,14 @@ body {
 		background: $white;
 		border: 1px solid $black;
 	}
+}
+._title {
+	font-family: "Goudy Bookletter 1911";
+	font-size: 20px;
+}
+._text {
+	font-family: "Mulish";
+	font-size: 16px;
 }
 //--------------------------------------------------------------------------------------------------------
 .header {
@@ -613,7 +621,7 @@ body {
 		@media (max-width: 414px) {
 			line-height: 150%;
 		}
-		p{
+		p {
 			margin-bottom: 12px;
 		}
 	}
@@ -779,5 +787,69 @@ body {
 	}
 	& .swiper-slide-thumb-active {
 		opacity: 1;
+	}
+}
+
+.products-recommendations {
+	padding: 50px 0;
+	// .products-recommendations__title
+	&__title {
+		text-align: center;
+		margin-bottom: 50px;
+		font-size: 32px;
+	}
+	// .products-recommendations__container
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(220px, 1fr));
+		overflow-x: auto;
+		gap: 15px;
+	}
+	// .products-recommendations__item
+	&__item {
+		display: grid;
+		grid-template-rows: auto 1fr;
+	}
+	// .products-recommendations__image
+	&__image {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		height: 250px;
+		margin-bottom: 10px;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			-o-object-fit: cover;
+			object-fit: cover;
+			-o-object-position: center;
+			object-position: center;
+		}
+	}
+	// .products-recommendations__content
+	&__content {
+		display: grid;
+		grid-template-rows: auto 1fr auto auto;
+		align-content: stretch;
+		row-gap: 15px;
+		padding-left: 5px;
+	}
+	// .products-recommendations__item-title
+	&__item-title {
+		color: $black;
+	}
+	// .products-recommendations__text
+	&__text {
+	}
+	// .products-recommendations__button
+	&__button {
+		justify-self: start;
+	}
+	// .products-recommendations__link
+	&__link {
+		justify-self: start;
 	}
 }

@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2021-07-26
+### Added
+- product recommendations section
+
 ## [1.1.0] - 2021-07-25
 ### Added
 - product template

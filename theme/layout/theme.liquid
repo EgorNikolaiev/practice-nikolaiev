@@ -53,7 +53,24 @@
 	<main class="main">
 		{{ content_for_layout }}
 	</main>
+	<script>
+		window.routes = {
+			cart_add_url: '{{ routes.cart_add_url }}',
+			cart_change_url: '{{ routes.cart_change_url }}',
+			cart_update_url: '{{ routes.cart_update_url }}'
+		};
 
+		window.cartStrings = {
+			error: `cart error`,
+			quantityError: `cart quantity error html`
+		}
+
+		window.variantStrings = {
+			addToCart: `Add To Cart`,
+			soldOut: `Sold Out`,
+			unavailable: `Unavailable`,
+		}
+	</script>
 	<script src="{{ 'script.min.js' | asset_url }}" defer="defer"></script>
 	<script src="{{ 'product-slider.min.js' | asset_url }}" defer="defer"></script>
 </body>

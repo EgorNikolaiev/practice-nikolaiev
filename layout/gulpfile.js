@@ -88,6 +88,7 @@ const js = () => {
 		.pipe(terser())
 		.pipe(rename({ extname: ".min.js" }))
 		.pipe(dest(path.build.js))
+		.pipe(dest("../theme/assets/"))
 		.pipe(connect.reload());
 }
 

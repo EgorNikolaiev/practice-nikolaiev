@@ -1,0 +1,6 @@
+{% render 'icon-cart' %}
+{%- if cart != empty -%}
+	<span class="cart__label">
+			{{ cart.item_count }}
+	</span>							
+{%- endif -%}

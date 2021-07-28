@@ -26,76 +26,23 @@
 				</nav>
 
 				<div class="header__cart cart">
-					<button class='cart__open-button' type='button' aria-expanded='false' aria-controls='cart__list'>
+					
+					<button 
+					{% if request.page_type == 'cart' %}
+						style='pointer-events: none;'
+					{% endif %} 
+					id="cart-icon-bubble" class='cart__open-button' type='button'>
 						{% render 'icon-cart' %}
-						<span class="cart__label">8</span>
+						{%- if cart != empty -%}
+							<span class="cart__label">
+									{{ cart.item_count }}
+							</span>							
+						{%- endif -%}
 					</button>
-
-					<div class="cart__body">
-						<div class="cart__content">
-
-							<div class="cart__header">
-								<div class="cart__count">Cart (8 items)</div>
-								<button class='cart__close-button' type='button' aria-expanded='false' aria-controls='cart__list'></button>
-							</div>
-							<ul class="cart__list" id="cart__list">
-
-								<li class="cart__item item-cart">
-									<div class="item-cart__image">
-										<picture>
-											<source srcset='images/products/01.webp' type='image/webp'>
-											<img src='images/products/01.jpg' alt='#'>
-										</picture>
-									</div>
-									<a href="#" class="item-cart__title">Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in</a>
-									<div class="item-cart__price">$19.95<span>$29.95</span></div>
-									<div class="item-cart__counter counter-item">
-										<div class="counter-item__down">-</div>
-										<div class="counter-item__number">1</div>
-										<div class="counter-item__up">+</div>
-									</div>
-								</li>
-								<li class="cart__item item-cart">
-									<div class="item-cart__image">
-										<picture>
-											<source srcset='images/products/02.webp' type='image/webp'>
-											<img src='images/products/02.jpg' alt='#'>
-										</picture>
-									</div>
-									<a href="#" class="item-cart__title">Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in</a>
-									<div class="item-cart__price">$19.95<span>$29.95</span></div>
-									<div class="item-cart__counter counter-item">
-										<div class="counter-item__down">-</div>
-										<div class="counter-item__number">1</div>
-										<div class="counter-item__up">+</div>
-									</div>
-								</li>
-								<li class="cart__item item-cart">
-									<div class="item-cart__image">
-										<picture>
-											<source srcset='images/products/03.webp' type='image/webp'>
-											<img src='images/products/03.jpg' alt='#'>
-										</picture>
-									</div>
-									<a href="#" class="item-cart__title">Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in</a>
-									<div class="item-cart__price">$19.95<span>$29.95</span></div>
-									<div class="item-cart__counter counter-item">
-										<div class="counter-item__down">-</div>
-										<div class="counter-item__number">1</div>
-										<div class="counter-item__up">+</div>
-									</div>
-								</li>
-
-							</ul>
-							<div class="cart__footer">
-								<div class="cart__subtotal">Subtotal</div>
-								<div class="cart__subtotal-amount">$144.95</div>
-								<button class="cart__button-view _btn _btn_secondary">View cart</button>
-								<button class="cart__button-proceed _btn _btn_primary">Proceed to checkout</button>
-							</div>
-
-						</div>
-					</div>
+					
+					{%- if request.page_type != 'cart' -%}
+						{%- render 'cart-notification' -%}
+					{%- endif -%}
 				</div>
 			</div>
 </header>

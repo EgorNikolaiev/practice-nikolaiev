@@ -1,0 +1,115 @@
+{%- if cart.item_count > 0 -%}
+<cart-items>
+	<div class="page-cart _container">
+		
+		<div class="page-cart__body">
+			<div class="page-cart__content">
+
+				<div class="page-cart__header">
+					<div id="cart-notification-count" class="page-cart__count">Cart ({{ cart.item_count }} items)</div>
+				</div>				
+				
+				<form action="/cart" method="post">	
+
+					<div id="cart-notification-list" data-id="{{ section.id }}">
+					<ul class="js-contents page-cart__list">
+
+							{%- for item in cart.items -%}
+								<li id="CartItem-{{ item.index | plus: 1 }}" class="page-cart__item item-cart">
+									<div class="item-cart__image">
+											<img src='{{ item | img_url: '200x200' }}' alt='{{ item.image.alt | escape }}'>
+									</div>
+									<a href="{{ item.url | within: collections.all }}" class="item-cart__title">{{ item.product.title }}({{ item.variant.title }})</a>
+									
+									{%- assign property_size = item.properties | size -%}
+									{%- if property_size > 0 -%}
+										<ul>
+							
+											{%- for p in item.properties -%}
+												{%- assign first_character_in_key = p.first | truncate: 1, '' -%}
+												{%- unless p.last == blank or first_character_in_key == '_' -%}
+													<li>
+														{{ p.first }}:
+							
+														{%- if p.last contains '/uploads/' -%}
+															<a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+														{%- else -%}
+															{{ p.last }}
+														{%- endif -%}
+							
+													</li>
+												{%- endunless -%}
+											{%- endfor -%}
+							
+										</ul>
+									{%- endif -%}
+									
+									<div class="item-cart__price">									
+										{{ item.price | money }}
+										{%- if item.product.compare_at_price > item.price %}
+											<span>
+												{{ item.product.compare_at_price | money }}
+											</span>
+										{% endif -%}
+									</div>
+
+									<quantity-input class="item-cart__counter counter-item">
+										<button class="counter-item__down" name="minus" type="button">-</button>
+										<input class="counter-item__number"
+												type="number"
+												name="updates[]"
+												id="Quantity-{{ item.index | plus: 1 }}"
+												data-index="{{ item.index | plus: 1 }}"
+												min="0"
+												value="{{ item.quantity }}"
+												form="product-form-{{ section.id }}"
+											>
+										<button class="counter-item__up" name="plus" type="button">+</button>
+									</quantity-input>
+
+									<cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+										<a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="remove">
+											Remove
+										</a>
+									</cart-remove-button>
+									<div class="loading-overlay hidden">
+										<div class="loading-overlay__spinner">
+											<svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+												<circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+											</svg>
+										</div>
+									</div>
+								</li>
+							{%- endfor -%}
+
+					</ul>
+					</div>
+					
+					<div class="page-cart__footer">
+						<div class="page-cart__subtotal">Subtotal</div>
+						<div id="cart-notification-amount" class="page-cart__subtotal-amount">{{ cart.total_price | money }}</div>
+						<input class="page-cart__button-proceed _btn _btn_primary" type="submit" name="checkout" value="Proceed to checkout">
+					</div>
+
+					<p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
+					<p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status"></p>
+					<div style="display: none;" id="cart-errors"></div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</cart-items>
+{%- else -%}
+<div class="page-cart _container">
+	
+	<div class="page-cart__body">
+		<div class="page-cart__content">
+
+			<div class="page-cart__header">
+				<div class="page-cart__count">The cart is empty. <a href="/collections/all">Continue shopping</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+{%- endif -%}

@@ -74,6 +74,7 @@ const css = () => {
 		.pipe(clean_css())
 		.pipe(rename({ extname: ".min.css" }))
 		.pipe(dest(path.build.css))
+		.pipe(dest("../theme/assets/"))
 		.pipe(connect.reload());
 }
 
@@ -87,6 +88,7 @@ const js = () => {
 		.pipe(terser())
 		.pipe(rename({ extname: ".min.js" }))
 		.pipe(dest(path.build.js))
+		.pipe(dest("../theme/assets/"))
 		.pipe(connect.reload());
 }
 

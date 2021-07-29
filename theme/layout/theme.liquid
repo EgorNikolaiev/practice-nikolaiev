@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="{{ shop.locale }}">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="theme-color" content="">
+	<link rel="canonical" href="{{ canonical_url }}">
+
+	<title>{{ shop.name }}</title>
+
+	{% if page_description %}
+		<meta name="description" content="{{ page_description | escape }}">
+	{% endif %}
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="{{ 'style.min.css' | asset_url }}">
+
+	<style>
+		@charset "UTF-8";
+
+		@font-face {
+			font-family: "Mulish";
+			font-display: swap;
+			src: url("{{ 'Mulish-Regular.woff' | asset_url }}") format("woff"), url("{{ 'Mulish-Regular.woff2' | asset_url }}") format("woff2");
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: "Mulish";
+			font-display: swap;
+			src: url("{{ 'Mulish-Bold.woff' | asset_url }}") format("woff"), url("{{ 'Mulish-Bold.woff2' | asset_url }}") format("woff2");
+			font-weight: 700;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: "Goudy Bookletter 1911";
+			font-display: swap;
+			src: url("{{ 'GoudyBookletter1911-Regular.woff' | asset_url }}") format("woff"), url("{{ 'GoudyBookletter1911-Regular.woff2' | asset_url }}") format("woff2");
+			font-weight: 400;
+			font-style: normal;
+		}
+	</style>
+	{{ content_for_header }}
+</head>
+
+<body>
+	{% section 'header' %}
+
+	<main class="main">
+		{{ content_for_layout }}
+	</main>
+	<script>
+		window.routes = {
+			cart_add_url: '{{ routes.cart_add_url }}',
+			cart_change_url: '{{ routes.cart_change_url }}',
+			cart_update_url: '{{ routes.cart_update_url }}'
+		};
+
+		window.cartStrings = {
+			error: `cart error`,
+			quantityError: `cart quantity error html`
+		}
+
+		window.variantStrings = {
+			addToCart: `Add To Cart`,
+			soldOut: `Sold Out`,
+			unavailable: `Unavailable`,
+		}
+	</script>
+	<script src="{{ 'script.min.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'product-slider.min.js' | asset_url }}" defer="defer"></script>
+</body>
+
+</html>

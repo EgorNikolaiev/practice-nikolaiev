@@ -1,0 +1,67 @@
+<header class="header">
+			<div class="header__container _container">
+				<a href="/" class="header__logo">
+					<img src='{{ section.settings.logo | img_url: 'master' }}' 
+							 alt='{{ section.settings.logo.alt | default: shop.name}}'>
+				</a>
+
+				<nav class='header__menu menu'>
+					<button class='menu__button' type='button' aria-expanded='false' aria-controls='menu__list'><span></span></button>
+					<ul class='menu__list' id='menu__list'>
+						{% for link in linklists.main-menu.links %}
+							<li class='menu__item'><a class='menu__link' href='{{ link.url }}'>{{ link.title }}</a></li>
+						{% endfor %}
+
+						<li class='menu__item'><a class='menu__link menu__link_accent' href='#'>Sale</a></li>
+						<li class='menu__item menu__search'>
+							<form action="#" class="search-form">
+								<input type="text" placeholder="Type your search" class="search-form__input">
+								<button class="search-form__button">
+									{% render 'icon-search' %}
+								</button>
+							</form>
+						</li>
+
+					</ul>
+				</nav>
+
+				<div class="header__cart cart">
+					
+					<button 
+					{% if request.page_type == 'cart' %}
+						style='pointer-events: none;'
+					{% endif %} 
+					id="cart-icon-bubble" class='cart__open-button' type='button'>
+						{% render 'icon-cart' %}
+						{%- if cart != empty -%}
+							<span class="cart__label">
+									{{ cart.item_count }}
+							</span>							
+						{%- endif -%}
+					</button>
+					
+					{%- if request.page_type != 'cart' -%}
+						{%- render 'cart-notification' -%}
+					{%- endif -%}
+				</div>
+			</div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Menu"
+    }
+  ]
+}
+{% endschema %}

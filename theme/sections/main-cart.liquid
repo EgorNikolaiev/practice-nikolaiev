@@ -1,5 +1,5 @@
-{%- if cart.item_count > 0 -%}
 <cart-items>
+
 	<div class="page-cart _container">
 		
 		<div class="page-cart__body">
@@ -83,7 +83,7 @@
 							{%- endfor -%}
 
 					</ul>
-					</div>
+					</div>	
 					
 					<div class="page-cart__footer">
 						<div class="page-cart__subtotal">Subtotal</div>
@@ -97,19 +97,7 @@
 				</form>
 
 			</div>
+
 		</div>
 	</div>
 </cart-items>
-{%- else -%}
-<div class="page-cart _container">
-	
-	<div class="page-cart__body">
-		<div class="page-cart__content">
-
-			<div class="page-cart__header">
-				<div class="page-cart__count">The cart is empty. <a href="/collections/all">Continue shopping</a></div>
-			</div>
-		</div>
-	</div>
-</div>
-{%- endif -%}

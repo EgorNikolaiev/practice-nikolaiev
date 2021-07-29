@@ -8,8 +8,8 @@
 				<button class='cart__close-button' type='button'></button>
 			</div>
 
-			<div id="cart-notification-list" data-id="{{ section.id }}">
-				<ul  class="js-contents cart__list">
+			<div id="cart-notification-list" data-id="{{ section.id }}" class="cart__list">
+				<ul  class="js-contents">
 
 					{%- if cart != empty -%}
 						{%- for item in cart.items -%}
